@@ -13,9 +13,27 @@ class App extends Component {
         super(props);
         this.state = {
             data: [
-                { name: 'John Smith', salary: 2000, increase: false, id: 1 },
-                { name: 'Max Bogdanov', salary: 3000, increase: false, id: 2 },
-                { name: 'Mariya Belova', salary: 3500, increase: false, id: 3 },
+                {
+                    name: 'John Smith',
+                    salary: 2000,
+                    increase: false,
+                    rise: true,
+                    id: 1,
+                },
+                {
+                    name: 'Max Bogdanov',
+                    salary: 3000,
+                    increase: true,
+                    rise: false,
+                    id: 2,
+                },
+                {
+                    name: 'Mariya Belova',
+                    salary: 3500,
+                    increase: false,
+                    rise: false,
+                    id: 3,
+                },
             ],
         };
         this.maxId = 4;
@@ -40,6 +58,7 @@ class App extends Component {
             name,
             salary,
             increase: false,
+            rise: false,
             id: this.maxId++,
         };
 
@@ -50,10 +69,26 @@ class App extends Component {
         });
     };
 
+    toggleProp = (id, prop) => {
+        this.setState(({ data }) => ({
+            data: data.map((item) => {
+                if (item.id === id) {
+                    return { ...item, [prop]: !item[prop] };
+                }
+                return item;
+            }),
+        }));
+    };
+
     render() {
+        const employees = this.state.data.length;
+        const increased = this.state.data.filter(
+            (item) => item.increase
+        ).length;
+
         return (
             <div className='app'>
-                <AppInfo />
+                <AppInfo employeesCount={employees} increased={increased} />
 
                 <div className='search-panel'>
                     <SearchPanel />
@@ -63,6 +98,7 @@ class App extends Component {
                 <EmployeesList
                     data={this.state.data}
                     onDelete={this.deleteEmployee}
+                    onToggleProp={this.toggleProp}
                 />
                 <EmployeesAddForm onAdd={this.addEmployee} />
             </div>
