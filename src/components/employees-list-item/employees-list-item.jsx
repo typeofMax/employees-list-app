@@ -23,6 +23,7 @@ class EmployeesListItem extends Component {
     };
 
     render() {
+        const { name, salary, onDelete } = this.props;
         const { increase, stared } = this.state;
 
         let classes = 'list-group-item d-flex justify-content-between';
@@ -36,11 +37,13 @@ class EmployeesListItem extends Component {
 
         return (
             <li className={classes}>
-                <span className='list-group-item-label' onClick={this.onStared}>{this.props.name}</span>
+                <span className='list-group-item-label' onClick={this.onStared}>
+                    {name}
+                </span>
                 <input
                     type='text'
                     className='list-group-item-input'
-                    defaultValue={this.props.salary + '$'}
+                    defaultValue={salary + '$'}
                 />
                 <div className='d-flex justify-content-center align-items-center'>
                     <button
@@ -51,7 +54,7 @@ class EmployeesListItem extends Component {
                         <i className='fas fa-cookie'></i>
                     </button>
 
-                    <button type='button' className='btn-trash btn-sm '>
+                    <button type='button' className='btn-trash btn-sm ' onClick={onDelete}>
                         <i className='fas fa-trash'></i>
                     </button>
                     <i className='fas fa-star'></i>
