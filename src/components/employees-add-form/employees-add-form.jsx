@@ -23,8 +23,8 @@ class EmployeesAddForm extends Component {
         this.setState({
             name: '',
             salary: '',
-        })
-    }
+        });
+    };
 
     render() {
         const { name, salary } = this.state;
