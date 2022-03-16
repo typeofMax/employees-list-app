@@ -34,11 +34,18 @@ class App extends Component {
                     rise: false,
                     id: 3,
                 },
+                {
+                    name: 'John Sena',
+                    salary: 900,
+                    increase: false,
+                    rise: false,
+                    id: 4,
+                },
             ],
             term: '',
-            filter: '',
+            filter: 'all',
         };
-        this.maxId = 4;
+        this.maxId = 5;
     }
 
     deleteEmployee = (id) => {
@@ -96,15 +103,33 @@ class App extends Component {
         this.setState({ term });
     };
 
+    filterEmployeesList = (employeesData, filter) => {
+        switch (filter) {
+            case 'rise':
+                return employeesData.filter((item) => item.rise);
+            case 'moreThen1000':
+                return employeesData.filter((item) => item.salary > 1000);
+            default:
+                return employeesData;
+        }
+    };
+
+    onFilter = (filter) => {
+        this.setState({ filter });
+    };
+
     render() {
-        const { data, term } = this.state;
+        const { data, term, filter } = this.state;
 
         const employees = this.state.data.length;
         const increased = this.state.data.filter(
             (item) => item.increase
         ).length;
 
-        const visibleData = this.searchEmployee(data, term);
+        const visibleData = this.filterEmployeesList(
+            this.searchEmployee(data, term),
+            filter
+        );
 
         return (
             <div className='app'>
@@ -112,7 +137,7 @@ class App extends Component {
 
                 <div className='search-panel'>
                     <SearchPanel onSearch={this.onSearch} />
-                    <AppFilter />
+                    <AppFilter filter={filter} onFilter={this.onFilter} />
                 </div>
 
                 <EmployeesList
