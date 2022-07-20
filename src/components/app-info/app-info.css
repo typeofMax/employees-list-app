@@ -6,8 +6,41 @@
 	color: #fff;
 }
 .app-title {
+	display: flex;
+	align-items: baseline;
+}
+.app-title__text {
+	margin-right: 8px;
 	font-size: 26px;
+}
+.app-title__company{
+	width: 250px;
+	background-color: transparent;
+	border: none;
+	border-radius: 5px;
+	font-size: 26px;
+	color: #fff;
+}
+.nofill-pulse {
+	animation: pulse 2s infinite;
+}
+.app-title__company:focus{
+	outline: none;
+}
+.app-title__company::placeholder{
+	color:#fff;
 }
 .app-subtitle {
 	font-size: 18px;
+}
+@keyframes pulse {
+	0% {
+		outline: 2px solid rgb(255, 255, 255);
+	}
+	50% {
+		outline: 2px solid rgba(255, 255, 255, 0.262);
+	}
+	100% {
+		outline: 2px solid rgb(255, 255, 255);
+	}
 }
