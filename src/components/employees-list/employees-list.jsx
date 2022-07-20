@@ -1,5 +1,6 @@
+//@Components
 import EmployeesListItem from '../employees-list-item/employees-list-item';
-
+//@Styles
 import './employees-list.css';
 
 const EmployeesList = ({ data, onDelete, onToggleProp, changeSalary }) => {
@@ -12,6 +13,7 @@ const EmployeesList = ({ data, onDelete, onToggleProp, changeSalary }) => {
 			</ul>
 		);
 	}
+
 	const listItem = data.map((item) => {
 		const { id, ...props } = item;
 
