@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/employees-list-app/static/css/main.06402fc4.css",
-    "main.js": "/employees-list-app/static/js/main.74af6bd7.js",
+    "main.css": "/employees-list-app/static/css/main.ac799f3d.css",
+    "main.js": "/employees-list-app/static/js/main.f2f0f5b1.js",
     "index.html": "/employees-list-app/index.html",
-    "main.06402fc4.css.map": "/employees-list-app/static/css/main.06402fc4.css.map",
-    "main.74af6bd7.js.map": "/employees-list-app/static/js/main.74af6bd7.js.map"
+    "main.ac799f3d.css.map": "/employees-list-app/static/css/main.ac799f3d.css.map",
+    "main.f2f0f5b1.js.map": "/employees-list-app/static/js/main.f2f0f5b1.js.map"
   },
   "entrypoints": [
-    "static/css/main.06402fc4.css",
-    "static/js/main.74af6bd7.js"
+    "static/css/main.ac799f3d.css",
+    "static/js/main.f2f0f5b1.js"
   ]
 }
